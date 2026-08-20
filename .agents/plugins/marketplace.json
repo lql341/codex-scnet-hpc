@@ -1,0 +1,20 @@
+{
+  "name": "scnet-hpc",
+  "interface": {
+    "displayName": "SCNet HPC"
+  },
+  "plugins": [
+    {
+      "name": "scnet-hpc",
+      "source": {
+        "source": "local",
+        "path": "./plugins/scnet-hpc"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

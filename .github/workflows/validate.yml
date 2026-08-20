@@ -1,0 +1,33 @@
+name: Validate Codex plugin
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7
+        with:
+          repository: lql341/scnet-hpc
+          path: canonical-scnet-hpc
+      - name: Verify synchronized skill
+        run: |
+          ./sync.sh --src canonical-scnet-hpc
+          git diff --exit-code -- plugins/scnet-hpc/skills/scnet-hpc
+      - name: Validate shell syntax
+        run: |
+          for script in plugins/scnet-hpc/skills/scnet-hpc/scripts/*.sh; do
+            bash -n "$script"
+          done
+      - name: Validate Python syntax
+        run: python3 -m py_compile plugins/scnet-hpc/skills/scnet-hpc/scripts/compute-probe.py
+      - name: Check repository hygiene
+        run: git diff --check

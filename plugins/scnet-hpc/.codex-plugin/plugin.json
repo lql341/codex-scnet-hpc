@@ -1,0 +1,39 @@
+{
+  "name": "scnet-hpc",
+  "version": "0.1.0",
+  "description": "Operate SCNet HPC clusters through profile-based SSH, Slurm workflows, and Hygon DCU diagnostics.",
+  "author": {
+    "name": "scnet-hpc contributors",
+    "url": "https://github.com/lql341"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "SCNet HPC",
+    "shortDescription": "Operate SCNet clusters with SSH, Slurm, and DCU profiles",
+    "longDescription": "Use SCNet HPC for profile-aware SSH setup, Slurm job generation and diagnosis, cluster profile management, compute-node probes, and Hygon DCU/DTK compatibility checks.",
+    "developerName": "scnet-hpc contributors",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/lql341/scnet-hpc",
+    "defaultPrompt": [
+      "Use SCNet HPC to inspect a cluster profile and prepare a validated Slurm workflow.",
+      "Check SCNet cluster constraints before generating a job script.",
+      "Diagnose an SCNet Slurm or Hygon DCU job failure."
+    ]
+  },
+  "homepage": "https://github.com/lql341/scnet-hpc",
+  "repository": "https://github.com/lql341/codex-scnet-hpc",
+  "license": "MIT",
+  "keywords": [
+    "scnet",
+    "hpc",
+    "slurm",
+    "ssh",
+    "hygon",
+    "dcu",
+    "codex"
+  ]
+}
