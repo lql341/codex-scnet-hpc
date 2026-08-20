@@ -29,5 +29,25 @@ jobs:
           done
       - name: Validate Python syntax
         run: python3 -m py_compile plugins/scnet-hpc/skills/scnet-hpc/scripts/compute-probe.py
+      - name: Validate Plugin manifests
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          plugin = json.loads(Path("plugins/scnet-hpc/.codex-plugin/plugin.json").read_text())
+          marketplace = json.loads(Path(".agents/plugins/marketplace.json").read_text())
+
+          assert plugin["name"] == "scnet-hpc"
+          assert plugin["skills"] == "./skills/"
+          assert plugin["license"] == "MIT"
+          assert plugin["interface"]["displayName"] == "SCNet HPC"
+          assert len(plugin["interface"]["defaultPrompt"]) <= 3
+
+          entries = [entry for entry in marketplace["plugins"] if entry["name"] == "scnet-hpc"]
+          assert len(entries) == 1
+          assert entries[0]["source"]["path"] == "./plugins/scnet-hpc"
+          assert entries[0]["policy"]["installation"] == "AVAILABLE"
+          PY
       - name: Check repository hygiene
         run: git diff --check
