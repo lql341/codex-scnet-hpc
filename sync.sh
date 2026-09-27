@@ -27,12 +27,15 @@ cp -R "$SRC/clusters" "$DST/clusters"
 rm -rf "$DST/clusters/.cache"
 cp -R "$SRC/references" "$DST/references"
 mkdir -p "$DST/scripts"
-for file in _common.sh compute-probe.py new-job.sh probe-cluster.sh refresh-cluster.sh run-compute-probe.sh setup-ssh.sh setup.sh scnet.py scnet_config.py; do
+for file in _common.sh compute-probe.py new-job.sh probe-cluster.sh refresh-cluster.sh run-compute-probe.sh setup-ssh.sh setup.sh scnet.py scnet_config.py scnet_credentials.py scnet_version.py; do
   cp "$SRC/scripts/$file" "$DST/scripts/$file"
 done
 rm -rf "$DST/scripts/scnet_backends"
 cp -R "$SRC/scripts/scnet_backends" "$DST/scripts/scnet_backends"
+rm -rf "$DST/scripts/scnet_sdk"
+cp -R "$SRC/scripts/scnet_sdk" "$DST/scripts/scnet_sdk"
 chmod +x "$DST/scripts/"*.sh "$DST/scripts/compute-probe.py"
+chmod +x "$DST/scripts/scnet.py"
 chmod +x "$DST/scripts/scnet.py"
 if [ -f "$SRC/agents/openai.yaml" ]; then
   mkdir -p "$DST/agents"
