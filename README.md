@@ -2,7 +2,9 @@
 
 [简体中文](./README_CN.md)
 
-A skills-only Codex Plugin that distributes the canonical [`scnet-hpc`](https://github.com/lql341/scnet-hpc) Agent Skill for operating Supercomputing Network (SCNet) clusters.
+Current release: **0.5.0**
+
+A skills-only Codex Plugin that distributes the source [`scnet-hpc`](https://github.com/lql341/scnet-hpc) Agent Skill for operating Supercomputing Network (SCNet) through SSH and OpenAPI.
 
 This repository is the Codex distribution wrapper. Skill instructions, cluster profiles, references, and runtime scripts are maintained in the canonical repository and synchronized into `plugins/scnet-hpc/skills/scnet-hpc/`.
 
@@ -24,7 +26,11 @@ Start a new Codex session after installation. Invoke the skill explicitly with `
 
 ## Included capabilities
 
+- Repeatable SCNet configuration and SSH key rotation
+- OpenAPI region, scheduler, queue, and file discovery
 - Profile-aware SCNet SSH and Slurm workflows
+- OpenAPI job and file operations with dry-run support
+- Notebook region, resource, image, instance, and lifecycle operations
 - CPU-only and Hygon DCU-aware job generation and diagnosis
 - Cluster profile discovery and refresh
 - Compute-node capability probes
@@ -44,6 +50,8 @@ Start a new Codex session after installation. Invoke the skill explicitly with `
 │       ├── clusters/
 │       ├── references/
 │       └── scripts/
+│           ├── scnet_backends/
+│           └── scnet_sdk/
 ├── sync.sh
 └── .github/workflows/
 ```
@@ -60,18 +68,26 @@ The wrapper intentionally excludes the canonical installer, tests, repository CI
 
 Updates to canonical Skill content are synchronized through an automated pull request. The target repository validates synchronization, shell and Python syntax, Plugin metadata, and repository hygiene before merge.
 
+The Plugin version follows the source Skill `VERSION`. Report issues with both the Plugin version
+and `python3 plugins/scnet-hpc/skills/scnet-hpc/scripts/scnet.py --version`.
+
 ## Validation
 
 ```sh
 python3 /path/to/plugin-creator/scripts/validate_plugin.py plugins/scnet-hpc
 bash -n sync.sh plugins/scnet-hpc/skills/scnet-hpc/scripts/*.sh
-python3 -m py_compile plugins/scnet-hpc/skills/scnet-hpc/scripts/compute-probe.py
+python3 -m py_compile \
+  plugins/scnet-hpc/skills/scnet-hpc/scripts/*.py \
+  plugins/scnet-hpc/skills/scnet-hpc/scripts/scnet_backends/*.py \
+  plugins/scnet-hpc/skills/scnet-hpc/scripts/scnet_sdk/*.py
 ```
 
 ## Security boundaries
 
 - The repository must not contain private keys, tokens, usernames, private endpoints, or local probe caches.
 - SSH configuration, remote probes, and Slurm submission require an explicit target and user authorization.
+- Notebook create/start/stop/release operations require explicit confirmation; release is irreversible.
+- Passwords and credential-bearing Notebook URLs are redacted by default.
 - A compute-node probe consumes scheduler resources and is never implied by read-only inspection.
 - Accelerator compatibility claims require evidence from the target compute node.
 

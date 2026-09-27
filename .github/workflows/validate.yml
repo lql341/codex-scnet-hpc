@@ -28,7 +28,11 @@ jobs:
             bash -n "$script"
           done
       - name: Validate Python syntax
-        run: python3 -m py_compile plugins/scnet-hpc/skills/scnet-hpc/scripts/compute-probe.py
+        run: |
+          python3 -m py_compile \
+            plugins/scnet-hpc/skills/scnet-hpc/scripts/*.py \
+            plugins/scnet-hpc/skills/scnet-hpc/scripts/scnet_backends/*.py \
+            plugins/scnet-hpc/skills/scnet-hpc/scripts/scnet_sdk/*.py
       - name: Validate Plugin manifests
         run: |
           python3 - <<'PY'
@@ -39,6 +43,8 @@ jobs:
           marketplace = json.loads(Path(".agents/plugins/marketplace.json").read_text())
 
           assert plugin["name"] == "scnet-hpc"
+          version = Path("plugins/scnet-hpc/skills/scnet-hpc/VERSION").read_text().strip()
+          assert plugin["version"] == version
           assert plugin["skills"] == "./skills/"
           assert plugin["license"] == "MIT"
           assert plugin["interface"]["displayName"] == "SCNet HPC"

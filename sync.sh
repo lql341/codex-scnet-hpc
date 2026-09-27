@@ -22,6 +22,7 @@ done
 
 mkdir -p "$DST"
 awk '!/^\| `scripts\/install\.sh` \|/' "$SRC/SKILL.md" > "$DST/SKILL.md"
+cp "$SRC/VERSION" "$DST/VERSION"
 rm -rf "$DST/clusters" "$DST/references" "$DST/scripts" "$DST/agents"
 cp -R "$SRC/clusters" "$DST/clusters"
 rm -rf "$DST/clusters/.cache"

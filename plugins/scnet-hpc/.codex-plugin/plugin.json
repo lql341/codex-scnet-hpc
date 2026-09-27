@@ -1,7 +1,7 @@
 {
   "name": "scnet-hpc",
-  "version": "0.1.0",
-  "description": "Operate SCNet HPC clusters through profile-based SSH, Slurm workflows, and Hygon DCU diagnostics.",
+  "version": "0.5.0",
+  "description": "Configure and operate SCNet through SSH and OpenAPI, including jobs, files, and Notebook lifecycle workflows.",
   "author": {
     "name": "scnet-hpc contributors",
     "url": "https://github.com/lql341"
@@ -9,8 +9,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "SCNet HPC",
-    "shortDescription": "Operate SCNet clusters with SSH, Slurm, and DCU profiles",
-    "longDescription": "Use SCNet HPC for profile-aware SSH setup, Slurm job generation and diagnosis, cluster profile management, compute-node probes, and Hygon DCU/DTK compatibility checks.",
+    "shortDescription": "Operate SCNet jobs, files, SSH, and Notebooks",
+    "longDescription": "Configure SCNet connections, inspect regional capabilities, manage Slurm jobs and files through SSH or OpenAPI, and safely inspect or operate Notebook instances.",
     "developerName": "scnet-hpc contributors",
     "category": "Developer Tools",
     "capabilities": [
@@ -19,9 +19,9 @@
     ],
     "websiteURL": "https://github.com/lql341/scnet-hpc",
     "defaultPrompt": [
-      "Use SCNet HPC to inspect a cluster profile and prepare a validated Slurm workflow.",
-      "Check SCNet cluster constraints before generating a job script.",
-      "Diagnose an SCNet Slurm or Hygon DCU job failure."
+      "Configure or inspect my SCNet connections and available services.",
+      "Submit and monitor an SCNet job with the safest available backend.",
+      "Inspect or manage SCNet Notebook resources with explicit confirmation."
     ]
   },
   "homepage": "https://github.com/lql341/scnet-hpc",
@@ -32,6 +32,8 @@
     "hpc",
     "slurm",
     "ssh",
+    "openapi",
+    "notebook",
     "hygon",
     "dcu",
     "codex"
