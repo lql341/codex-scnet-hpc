@@ -2,11 +2,17 @@
 
 [English](./README.md) | 简体中文
 
-当前版本：**0.6.0**
+当前版本：**0.6.1**
 
 这是一个仅包含 Skill 的 Codex Plugin，用于分发源仓库 [`scnet-hpc`](https://github.com/lql341/scnet-hpc) Agent Skill，帮助 Codex 通过 SSH 和 OpenAPI 操作超算互联网（SCNet）。
 
 本仓库只负责 Codex 分发包装。Skill 指令、集群 profile、参考资料和运行脚本均在 canonical 仓库维护，并同步到 `plugins/scnet-hpc/skills/scnet-hpc/`。
+
+## 0.6.1 更新
+
+- 同步实时/历史作业查询和完整的作业状态规范化。
+- 同步紧凑作业列表能力以及安全的 OpenAPI 上传约定。
+- OpenAPI 上传目标是远端目录，文件名单独沿用本地文件名。
 
 ## 0.6.0 更新
 

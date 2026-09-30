@@ -2,13 +2,19 @@
 
 [简体中文](./README_CN.md)
 
-Current release: **0.6.0**
+Current release: **0.6.1**
 
 A skills-only Codex Plugin that distributes the source [`scnet-hpc`](https://github.com/lql341/scnet-hpc) Agent Skill for operating Supercomputing Network (SCNet) through SSH and OpenAPI.
 
 This repository is the Codex distribution wrapper. Skill instructions, cluster profiles, references, and runtime scripts are maintained in the canonical repository and synchronized into `plugins/scnet-hpc/skills/scnet-hpc/`.
 
-## What's new in 0.6.0
+## What's new in 0.6.1
+
+- Synchronized resilient active/history job lookup and complete normalized job states.
+- Added compact job-listing guidance and the safe OpenAPI upload contract.
+- OpenAPI uploads target a remote directory; the local filename is preserved separately.
+
+## 0.6.0 highlights
 
 - Synchronized the canonical `scnet-hpc` Skill release and runtime version to `0.6.0`.
 - Includes the current SSH/OpenAPI job, file, Notebook, profile, and Hygon DCU/DTK guidance.
