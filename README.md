@@ -2,7 +2,7 @@
 
 [简体中文](./README_CN.md)
 
-Current release: **0.6.2**
+Current release: **0.6.3**
 
 A skills-only Codex Plugin that distributes the source [`scnet-hpc`](https://github.com/lql341/scnet-hpc) Agent Skill for operating Supercomputing Network (SCNet) through SSH and OpenAPI.
 
