@@ -2,7 +2,13 @@
 
 [简体中文](./README_CN.md)
 
-Current release: **0.6.4**
+Current release: **0.6.5**
+
+## What's new in 0.6.4
+
+- OpenAPI with AK/SK is preferred for structured cluster operations; SSH remains available for environment setup, compilation, and interactive diagnosis.
+- Ubuntu/Debian users can install `libsecret-tools` for secure local credential storage; it is optional when credentials are provided through environment variables.
+
 
 A skills-only Codex Plugin that distributes the source [`scnet-hpc`](https://github.com/lql341/scnet-hpc) Agent Skill for operating Supercomputing Network (SCNet) through SSH and OpenAPI.
 

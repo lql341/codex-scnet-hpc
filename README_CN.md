@@ -2,7 +2,13 @@
 
 [English](./README.md) | 简体中文
 
-当前版本：**0.6.4**
+当前版本：**0.6.5**
+
+## 0.6.4 更新
+
+- 结构化集群操作优先使用 OpenAPI AK/SK；环境配置、编译和交互式诊断仍可使用 SSH。
+- Ubuntu/Debian 可安装 `libsecret-tools` 安全保存本地凭据；通过环境变量提供 AK/SK 时无需安装。
+
 
 这是一个仅包含 Skill 的 Codex Plugin，用于分发源仓库 [`scnet-hpc`](https://github.com/lql341/scnet-hpc) Agent Skill，帮助 Codex 通过 SSH 和 OpenAPI 操作超算互联网（SCNet）。
 
