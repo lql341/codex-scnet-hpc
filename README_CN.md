@@ -2,40 +2,20 @@
 
 [English](./README.md) | 简体中文
 
-当前版本：**0.6.5**
+当前版本：**0.6.6**
 
-## 0.6.4 更新
+<!-- scnet-release:start -->
+## 0.6.6 更新
 
-- 结构化集群操作优先使用 OpenAPI AK/SK；环境配置、编译和交互式诊断仍可使用 SSH。
-- Ubuntu/Debian 可安装 `libsecret-tools` 安全保存本地凭据；通过环境变量提供 AK/SK 时无需安装。
-
+- README 的版本亮点改为由 canonical 单一来源生成；每次发布替换当前版本区块，不再逐版
+  堆叠成流水账。
+- canonical Skill 和 Codex Plugin 在校验通过后自动创建 Git tag 与 GitHub Release。
+- DSH 分发仓库在同步版本进入 `main` 后，自动完成 npm 发布、Git tag 和 GitHub Release。
+<!-- scnet-release:end -->
 
 这是一个仅包含 Skill 的 Codex Plugin，用于分发源仓库 [`scnet-hpc`](https://github.com/lql341/scnet-hpc) Agent Skill，帮助 Codex 通过 SSH 和 OpenAPI 操作超算互联网（SCNet）。
 
 本仓库只负责 Codex 分发包装。Skill 指令、集群 profile、参考资料和运行脚本均在 canonical 仓库维护，并同步到 `plugins/scnet-hpc/skills/scnet-hpc/`。
-
-## 0.6.3 更新
-
-- 同步账户/资源摘要和有界等待作业能力。
-- 同步提交队列 fail-closed 和统一文件传输语义。
-
-## 0.6.2 更新
-
-- 已结束作业改用历史列表过滤查询，不再等待历史详情接口超时。
-- 兼容历史记录中的 `workdir` 和时间字段变体，便于继续读取日志。
-- 缓存目录只读时自动无缓存运行，不再阻断 OpenAPI 操作。
-
-## 0.6.1 更新
-
-- 同步实时/历史作业查询和完整的作业状态规范化。
-- 同步紧凑作业列表能力以及安全的 OpenAPI 上传约定。
-- OpenAPI 上传目标是远端目录，文件名单独沿用本地文件名。
-
-## 0.6.0 更新
-
-- 同步 canonical `scnet-hpc` Skill `0.6.0` 发布内容和运行时版本。
-- 包含当前 SSH/OpenAPI 作业、文件、Notebook、profile 以及海光 DCU/DTK 使用说明。
-- Plugin 元数据、打包 Skill 的 `VERSION` 和发布 README 保持一致。
 
 ## 环境要求
 
@@ -95,7 +75,7 @@ codex plugin add scnet-hpc@scnet-hpc
 
 包装仓库会排除 canonical 仓库中的安装脚本、测试、仓库 CI 配置和本地探针缓存。不要独立维护生成后的 Skill 副本。
 
-canonical Skill 内容更新后，会通过自动 workflow 创建同步 PR。合并前由目标仓库检查同步状态、Shell/Python 语法、Plugin 元数据和仓库卫生。
+canonical Skill 内容更新后，会通过自动 workflow 创建同步 PR。目标仓库校验同步状态、Shell/Python 语法、Plugin 元数据和仓库卫生；校验通过后自动合并，并发布对应的 Git tag 与 GitHub Release。
 
 Plugin 版本与源 Skill 的 `VERSION` 保持一致。反馈问题时请同时提供 Plugin 版本和
 `python3 plugins/scnet-hpc/skills/scnet-hpc/scripts/scnet.py --version` 输出。
