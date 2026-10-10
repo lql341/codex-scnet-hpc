@@ -1,6 +1,6 @@
 {
   "name": "scnet-hpc",
-  "version": "0.6.5",
+  "version": "0.6.6",
   "description": "Configure and operate SCNet through SSH and OpenAPI, including jobs, files, and Notebook lifecycle workflows.",
   "author": {
     "name": "scnet-hpc contributors",

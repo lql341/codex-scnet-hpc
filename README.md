@@ -2,40 +2,22 @@
 
 [简体中文](./README_CN.md)
 
-Current release: **0.6.5**
+Current release: **0.6.6**
 
-## What's new in 0.6.4
+<!-- scnet-release:start -->
+## 0.6.6 highlights
 
-- OpenAPI with AK/SK is preferred for structured cluster operations; SSH remains available for environment setup, compilation, and interactive diagnosis.
-- Ubuntu/Debian users can install `libsecret-tools` for secure local credential storage; it is optional when credentials are provided through environment variables.
-
+- README release highlights now come from one canonical source and replace the previous release
+  block instead of accumulating a version-by-version timeline.
+- The canonical Skill and Codex Plugin now create Git tags and GitHub Releases automatically after
+  validation.
+- The DSH distribution now publishes npm, its Git tag, and its GitHub Release automatically after
+  a synchronized version reaches `main`.
+<!-- scnet-release:end -->
 
 A skills-only Codex Plugin that distributes the source [`scnet-hpc`](https://github.com/lql341/scnet-hpc) Agent Skill for operating Supercomputing Network (SCNet) through SSH and OpenAPI.
 
 This repository is the Codex distribution wrapper. Skill instructions, cluster profiles, references, and runtime scripts are maintained in the canonical repository and synchronized into `plugins/scnet-hpc/skills/scnet-hpc/`.
-
-## What's new in 0.6.3
-
-- Added account/resource summaries and bounded job waiting.
-- Synchronized fail-closed queue selection and consistent upload/download semantics.
-
-## 0.6.2 highlights
-
-- Completed jobs now resolve through the filtered history-list endpoint instead of timing out.
-- Historical `workdir` and timing aliases are normalized for follow-up log workflows.
-- OpenAPI operations tolerate read-only cache directories by continuing without persistent cache.
-
-## 0.6.1 highlights
-
-- Synchronized resilient active/history job lookup and complete normalized job states.
-- Added compact job-listing guidance and the safe OpenAPI upload contract.
-- OpenAPI uploads target a remote directory; the local filename is preserved separately.
-
-## 0.6.0 highlights
-
-- Synchronized the canonical `scnet-hpc` Skill release and runtime version to `0.6.0`.
-- Includes the current SSH/OpenAPI job, file, Notebook, profile, and Hygon DCU/DTK guidance.
-- Keeps the Plugin metadata, packaged Skill `VERSION`, and release README aligned.
 
 ## Requirements
 
@@ -95,7 +77,7 @@ The packaged Skill is generated from the canonical repository:
 
 The wrapper intentionally excludes the canonical installer, tests, repository CI configuration, and local probe cache. Do not maintain the generated Skill copy independently.
 
-Updates to canonical Skill content are synchronized through an automated pull request. The target repository validates synchronization, shell and Python syntax, Plugin metadata, and repository hygiene before merge.
+Updates to canonical Skill content are synchronized through an automated pull request. After the target validation passes, the workflow merges the PR and publishes the matching Git tag and GitHub Release automatically.
 
 The Plugin version follows the source Skill `VERSION`. Report issues with both the Plugin version
 and `python3 plugins/scnet-hpc/skills/scnet-hpc/scripts/scnet.py --version`.
