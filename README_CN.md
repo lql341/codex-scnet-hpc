@@ -2,15 +2,14 @@
 
 [English](./README.md) | 简体中文
 
-当前版本：**0.6.6**
+当前版本：**0.6.8**
 
 <!-- scnet-release:start -->
-## 0.6.6 更新
+## 0.6.8 更新
 
-- README 的版本亮点改为由 canonical 单一来源生成；每次发布替换当前版本区块，不再逐版
-  堆叠成流水账。
-- canonical Skill 和 Codex Plugin 在校验通过后自动创建 Git tag 与 GitHub Release。
-- DSH 分发仓库在同步版本进入 `main` 后，自动完成 npm 发布、Git tag 和 GitHub Release。
+- connector 现在提供稳定错误码和 JSON 安全错误信封，覆盖认证、回调、网络、权限、
+  区域和平台能力失败。
+- OAuth 回调会话只允许消费一次并拒绝重放；平台 keyring 适配器不提供明文回退。
 <!-- scnet-release:end -->
 
 这是一个仅包含 Skill 的 Codex Plugin，用于分发源仓库 [`scnet-hpc`](https://github.com/lql341/scnet-hpc) Agent Skill，帮助 Codex 通过 SSH 和 OpenAPI 操作超算互联网（SCNet）。

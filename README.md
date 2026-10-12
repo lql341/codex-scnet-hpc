@@ -2,17 +2,15 @@
 
 [简体中文](./README_CN.md)
 
-Current release: **0.6.6**
+Current release: **0.6.8**
 
 <!-- scnet-release:start -->
-## 0.6.6 highlights
+## 0.6.8 highlights
 
-- README release highlights now come from one canonical source and replace the previous release
-  block instead of accumulating a version-by-version timeline.
-- The canonical Skill and Codex Plugin now create Git tags and GitHub Releases automatically after
-  validation.
-- The DSH distribution now publishes npm, its Git tag, and its GitHub Release automatically after
-  a synchronized version reaches `main`.
+- The connector now exposes stable error codes and JSON-safe envelopes for authentication,
+  callback, network, scope, region, and platform failures.
+- OAuth callback sessions are one-shot and reject replay; platform keyring adapters have no
+  plaintext fallback.
 <!-- scnet-release:end -->
 
 A skills-only Codex Plugin that distributes the source [`scnet-hpc`](https://github.com/lql341/scnet-hpc) Agent Skill for operating Supercomputing Network (SCNet) through SSH and OpenAPI.
