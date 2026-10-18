@@ -2,15 +2,16 @@
 
 [English](./README.md) | 简体中文
 
-当前版本：**0.6.10**
+当前版本：**0.6.11**
 
 <!-- scnet-release:start -->
-## 0.6.10 更新
+## 0.6.11 更新
 
-- 协调下游 DSH 发布协议无关的一次性 loopback OAuth 回调监听器，包含固定路径校验、
-  超时清理和不暴露回调细节的通用浏览器响应。
-- canonical Skill 继续保持 endpoint 无关；本版本不嵌入 SCNet issuer、endpoint、client ID、
-  scope 或任何凭证。
+- SSH 实时节点数探测失败时，回退到 profile/cache，继续生成 Slurm 作业脚本；
+  使用模拟 SSH 覆盖各类探测结果，回归测试不依赖真实网络。
+- 修复 Windows 配置文件权限诊断误报，补充 Windows 提示与 WSL2 使用指引。
+- 三个仓库统一保持 shell 脚本使用 LF；源仓库 main 校验通过后，自动同步下游版本与
+  中英文 README 发布说明。
 <!-- scnet-release:end -->
 
 这是一个仅包含 Skill 的 Codex Plugin，用于分发源仓库 [`scnet-hpc`](https://github.com/lql341/scnet-hpc) Agent Skill，帮助 Codex 通过 SSH 和 OpenAPI 操作超算互联网（SCNet）。

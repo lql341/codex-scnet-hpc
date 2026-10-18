@@ -44,3 +44,7 @@ if [ -f "$SRC/agents/openai.yaml" ]; then
 fi
 
 echo "Synchronized $SRC -> $DST"
+
+if [ -f "$SRC/.gitattributes" ]; then
+  cp "$SRC/.gitattributes" "$ROOT/.gitattributes"
+fi
