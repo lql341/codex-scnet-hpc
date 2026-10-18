@@ -2,16 +2,17 @@
 
 [English](./README.md) | 简体中文
 
-当前版本：**0.6.11**
+当前版本：**0.6.12**
 
 <!-- scnet-release:start -->
-## 0.6.11 更新
+## 0.6.12 更新
 
-- SSH 实时节点数探测失败时，回退到 profile/cache，继续生成 Slurm 作业脚本；
-  使用模拟 SSH 覆盖各类探测结果，回归测试不依赖真实网络。
-- 修复 Windows 配置文件权限诊断误报，补充 Windows 提示与 WSL2 使用指引。
-- 三个仓库统一保持 shell 脚本使用 LF；源仓库 main 校验通过后，自动同步下游版本与
-  中英文 README 发布说明。
+- 优化首次 AK/SK 配置：检查粘贴错误、隐藏双密钥、显示实际来源，保存后读回验证，
+  明确区分区域元数据与凭据持久保存。
+- 支持 Windows 凭据管理器，解释 macOS Keychain、Linux 密钥环依赖、PowerShell 会话
+  作用域与 Windows/WSL2 环境隔离。
+- 提前展示 SSH 私钥安装计划与实际配置，补充集群用户名、密钥有效期和 Windows OpenSSH
+  指引，并增加 Linux、macOS、Windows 三平台配置回归测试。
 <!-- scnet-release:end -->
 
 这是一个仅包含 Skill 的 Codex Plugin，用于分发源仓库 [`scnet-hpc`](https://github.com/lql341/scnet-hpc) Agent Skill，帮助 Codex 通过 SSH 和 OpenAPI 操作超算互联网（SCNet）。
